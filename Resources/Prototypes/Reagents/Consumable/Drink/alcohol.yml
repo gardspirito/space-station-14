@@ -1408,7 +1408,7 @@
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
-          min: 42.5
+          min: 80
         reagent: RussianRouletteBlank
         amount: -5
 
@@ -1428,7 +1428,7 @@
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
-          min: 42.5
+          min: 80
         reagent: RussianRouletteLive
         amount: -5
 
@@ -1448,7 +1448,7 @@
   metamorphicChangeColor: false
   metabolisms:
     Drink:
-      metabolismRate: 0.2
+      metabolismRate: 0.05
       effects:
       - !type:Jitter
       - !type:PopupMessage
@@ -1460,7 +1460,7 @@
       - !type:ActivateRandom
         conditions:
         - !type:ReagentThreshold
-          min: 12.5
+          min: 4.1
         cases:
         - activates:
           - reagent:
@@ -1473,7 +1473,7 @@
           effects:
           - !type:AdjustReagent
             reagent: RussianRoulette
-            amount: -15
+            amount: -5
           - !type:PopupMessage
             conditions:
             - !type:ReagentThreshold
@@ -1484,10 +1484,10 @@
             scaleByQuantity: true
             damage:
               groups:
-                Burn: -0.75
-                Brute: -0.75
-                Airloss: -0.75
-                Toxin: -0.75
+                Burn: -0.4
+                Brute: -0.4
+                Airloss: -0.4
+                Toxin: -0.4
           - !type:HealthChange # additional reward for actually taking the risk
             conditions:
             - !type:ReagentThreshold
@@ -1496,17 +1496,17 @@
             scaleByQuantity: true
             damage:
               types:
-                Piercing: -1
+                Piercing: -0.5
               groups:
-                Burn: -0.75
-                Brute: -0.75
-                Airloss: -0.75
-                Toxin: -0.75
+                Burn: -0.4
+                Brute: -0.4
+                Airloss: -0.4
+                Toxin: -0.4
           - !type:SatiateThirst
             factor: 30
           - !type:AdjustReagent
             reagent: Ethanol
-            amount: 4
+            amount: 6
         - activates:
           - reagent:
               ReagentId: RussianRouletteLive
@@ -1514,7 +1514,7 @@
           effects:
           - !type:AdjustReagent
             reagent: RussianRoulette
-            amount: -15
+            amount: -5
           - !type:PlaySound
             conditions:
             - !type:ReagentThreshold
@@ -1546,7 +1546,7 @@
             scaleByQuantity: true
             damage:
               types:
-                Piercing: 2
+                Piercing: 1
           - !type:SatiateThirst
             factor: 30
           - !type:AdjustReagent

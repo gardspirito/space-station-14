@@ -1377,9 +1377,9 @@
         maxVol: 30
         reagents:
         - ReagentId: RussianRoulette
-          Quantity: 15
+          Quantity: 5
         - ReagentId: RussianRouletteLive
-          Quantity: 15
+          Quantity: 25
   - type: Icon
     sprite: Objects/Consumable/Drinks/russianroulette.rsi
     state: icon
@@ -1395,9 +1395,9 @@
         maxVol: 30
         reagents:
         - ReagentId: RussianRoulette
-          Quantity: 15
+          Quantity: 5
         - ReagentId: RussianRouletteBlank
-          Quantity: 15
+          Quantity: 25
   - type: Icon
     sprite: Objects/Consumable/Drinks/russianroulette.rsi
     state: icon
@@ -1413,11 +1413,11 @@
         maxVol: 30
         reagents:
         - ReagentId: RussianRoulette
-          Quantity: 15
+          Quantity: 5
         - ReagentId: RussianRouletteLive
-          Quantity: 7.5
+          Quantity: 12.5
         - ReagentId: RussianRouletteBlank
-          Quantity: 7.5
+          Quantity: 12.5
   - type: Icon
     sprite: Objects/Consumable/Drinks/russianroulette.rsi
     state: icon
