@@ -43,7 +43,7 @@ public sealed class TransformableContainerSystem : EntitySystem
         }
 
         //the biggest reagent in the solution decides the appearance
-        var reagentId = solution.GetPrimaryReagentId();
+        var reagentId = solution.GetPrimaryMetamorphicReagentId(_prototypeManager);
 
         //If biggest reagent didn't changed - don't change anything at all
         if (entity.Comp.CurrentReagent != null && entity.Comp.CurrentReagent.ID == reagentId?.Prototype)

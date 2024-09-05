@@ -267,7 +267,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         AppearanceSystem.SetData(uid, SolutionContainerVisuals.Color, solution.GetColor(PrototypeManager), appearanceComponent);
         AppearanceSystem.SetData(uid, SolutionContainerVisuals.SolutionName, relation.ContainerName, appearanceComponent);
 
-        if (solution.GetPrimaryReagentId() is { } reagent)
+        if (solution.GetPrimaryMetamorphicReagentId(PrototypeManager) is { } reagent)
             AppearanceSystem.SetData(uid, SolutionContainerVisuals.BaseOverride, reagent.ToString(), appearanceComponent);
     }
 
@@ -334,7 +334,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         AppearanceSystem.SetData(uid, SolutionContainerVisuals.FillFraction, solution.FillFraction, appearanceComponent);
         AppearanceSystem.SetData(uid, SolutionContainerVisuals.Color, solution.GetColor(PrototypeManager), appearanceComponent);
 
-        if (solution.GetPrimaryReagentId() is { } reagent)
+        if (solution.GetPrimaryMetamorphicReagentId(PrototypeManager) is { } reagent)
             AppearanceSystem.SetData(uid, SolutionContainerVisuals.BaseOverride, reagent.ToString(), appearanceComponent);
     }
 
@@ -800,6 +800,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
 
         using (args.PushGroup(nameof(ExaminableSolutionComponent)))
         {
+            Log.Debug(primary.LocalizedPhysicalDescription);
             args.PushMarkup(Loc.GetString(messageString,
                 ("color", colorHex),
                 ("wordedAmount", Loc.GetString(solution.Contents.Count == 1

@@ -1400,6 +1400,7 @@
   physicalDesc: reagent-physical-desc-opaque
   flavor: medicine
   color: "#4a786a"
+  metamorphic: false
   metabolisms:
     Drink:
       metabolismRate: 0.01
@@ -1419,6 +1420,7 @@
   physicalDesc: reagent-physical-desc-powdery
   flavor: alcohol
   color: "#3e3e3e"
+  metamorphic: false
   metabolisms:
     Drink:
       metabolismRate: 0.01

@@ -328,7 +328,7 @@ namespace Content.Shared.Chemistry.Components
             return total;
         }
 
-        public ReagentId? GetPrimaryReagentId()
+        private ReagentId? GetPrimaryMetamorphicFilterableReagentId(IPrototypeManager? filterMetamorphic)
         {
             if (Contents.Count == 0)
                 return null;
@@ -337,7 +337,11 @@ namespace Content.Shared.Chemistry.Components
 
             foreach (var reagent in Contents)
             {
-                if (reagent.Quantity >= max.Quantity)
+                bool passesFilter = true;
+                if (filterMetamorphic is not null && filterMetamorphic.TryIndex(reagent.Reagent.Prototype, out ReagentPrototype? proto))
+                    passesFilter = proto.Metamorphic;
+
+                if (passesFilter && reagent.Quantity >= max.Quantity)
                 {
                     max = reagent;
                 }
@@ -345,6 +349,12 @@ namespace Content.Shared.Chemistry.Components
 
             return max.Reagent;
         }
+
+        public ReagentId? GetPrimaryReagentId()
+            => GetPrimaryMetamorphicFilterableReagentId(null);
+
+        public ReagentId? GetPrimaryMetamorphicReagentId(IPrototypeManager prototypeManager)
+            => GetPrimaryMetamorphicFilterableReagentId(prototypeManager);
 
         /// <summary>
         ///     Adds a given quantity of a reagent directly into the solution.
