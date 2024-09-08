@@ -30,6 +30,9 @@ public sealed partial class PaperQuantumComponent : Component
     public EntProtoId BluespaceStampEffectProto = "EffectFlashBluespaceMini";
 
     [DataField]
+    public float TeleportRange = 1f;
+
+    [DataField]
     public int TeleportWeight = 4;
 
     [DataField]
