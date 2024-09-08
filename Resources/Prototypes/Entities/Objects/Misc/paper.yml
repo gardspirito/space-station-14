@@ -76,6 +76,48 @@
           Quantity: 1
 
 - type: entity
+  name: quantum paper
+  parent: Paper
+  id: PaperQuantum
+  description: "Catastrophic consequences of accidentally bluespacing 384 megatons of paper to satisfy a single request to a malfunctioning printer still echo throughout the galaxy."
+  components:
+  - type: Superposed
+  - type: PaperQuantum
+    splitDuration: 0.5
+    damage:
+      types:
+        Slash: 50
+  - type: Explosive
+    explosionType: FireBomb
+    totalIntensity: 2
+    deleteAfterExplosion: false
+    canCreateVacuum: false
+
+    # // /// <summary>
+    # // /// The explosion prototype to spawn
+    # // /// </summary>
+    # // [DataField]
+    # // public ProtoId<ExplosionPrototype> ExplosionProto = "Default";
+
+    # // /// <summary>
+    # // /// The total amount of intensity an explosion can achieve
+    # // /// </summary>
+    # // [DataField]
+    # // public float ExplosionTotalIntensity = 3f;
+
+    # // /// <summary>
+    # // /// How quickly does the explosion's power slope? Higher = smaller area and more concentrated damage, lower = larger area and more spread out damage
+    # // /// </summary>
+    # // [DataField]
+    # // public float ExplosionDropoff = 2f;
+
+    # // /// <summary>
+    # // /// How much intensity can be applied per tile?
+    # // /// </summary>
+    # // [DataField]
+    # // public float ExplosionMaxTileIntensity = 1f;
+
+- type: entity
   name: paper scrap
   parent: Paper
   id: PaperScrap

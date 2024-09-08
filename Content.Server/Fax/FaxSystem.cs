@@ -579,21 +579,7 @@ public sealed class FaxSystem : EntitySystem
         var entityToSpawn = printout.PrototypeId.Length == 0 ? component.PrintPaperId.ToString() : printout.PrototypeId;
         var printed = EntityManager.SpawnEntity(entityToSpawn, Transform(uid).Coordinates);
 
-        if (TryComp<PaperComponent>(printed, out var paper))
-        {
-            _paperSystem.SetContent((printed, paper), printout.Content);
-
-            // Apply stamps
-            if (printout.StampState != null)
-            {
-                foreach (var stamp in printout.StampedBy)
-                {
-                    _paperSystem.TryStamp((printed, paper), stamp, printout.StampState);
-                }
-            }
-
-            paper.EditingDisabled = printout.Locked;
-        }
+        _paperSystem.Fill(printed, printout.Content, printout.StampState, printout.StampedBy, printout.Locked);
 
         _metaData.SetEntityName(printed, printout.Name);
 
